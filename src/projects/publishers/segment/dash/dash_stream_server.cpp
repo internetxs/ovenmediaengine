@@ -73,7 +73,7 @@ bool DashStreamServer::PrepareInterceptors(
 		response->SetHeader("Access-Control-Allow-Methods", "*");
 		response->SetHeader("Access-Control-Allow-Origin", "*");
 		response->SetHeader("Access-Control-Expose-Headers", "Server,Content-Length,Date");
-
+		response->SetHeader("Cache-Control", "max-age=60");
 		response->AppendString(response_body);
 
 		return http::svr::NextHandler::DoNotCall;
