@@ -81,7 +81,7 @@ http::svr::ConnectionPolicy CmafStreamServer::ProcessSegmentRequest(const std::s
 
 			// Set HTTP header
 			response->SetHeader("Content-Type", is_video ? "video/mp4" : "audio/mp4");
-
+                        response->SetHeader("Cache-Control", "max-age=300");
 			// Enable chunked transfer
 			response->SetKeepAlive();
 			response->SetChunkedTransfer();
